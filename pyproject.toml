@@ -47,7 +47,6 @@ coveralls = "^3.3.1"
 
 [tool.poetry.group.doc.dependencies]
 linuxdoc = "^20211220"
-pygments-systemrdl = "^1.2.0"
 Sphinx = "^5.2.3"
 sphinx-rtd-theme = "^1.0.0"
 
