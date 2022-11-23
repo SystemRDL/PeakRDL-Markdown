@@ -27,4 +27,4 @@ It generates the following output:
 .. mdinclude:: minimal_example.md
 
 
-.. _project's website: <https://blog.crossnox.dev/m2r2/>`
+.. _project's website: https://blog.crossnox.dev/m2r2/
