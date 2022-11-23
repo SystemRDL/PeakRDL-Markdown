@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "peakrdl_markdown"
-version = "0.0.0"
+version = "0.1.0"
 description = "Export Markdown description from the systemrdl-compiler register model"
 authors = ["Marek Pikuła <marek.pikula@embevity.com>"]
 maintainers = ["Marek Pikuła <marek.pikula@embevity.com>"]
@@ -49,6 +49,8 @@ coveralls = "^3.3.1"
 linuxdoc = "^20211220"
 Sphinx = "^5.2.3"
 sphinx-rtd-theme = "^1.0.0"
+m2r2 = "<0.3.3"
+sphinx-autobuild = "^2021.3.14"
 
 [tool.poetry.plugins."peakrdl.exporters"]
 "markdown" = "peakrdl_markdown.__peakrdl__:Exporter"

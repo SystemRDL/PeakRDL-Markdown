@@ -1,0 +1,35 @@
+addrmap some_register_map {
+
+  name = "RDL Example Registers";
+  desc = "This address map contains some example registers to show
+          how RDL can be utilized in various situations.";
+
+  reg {
+    name = "This chip part number and revision #";
+    desc = "This register cotains the part # and revision # for XYZ ASIC";
+
+    field {
+      hw   = w;
+      sw   = r;
+      desc = "This field represents the chips part number";
+    } part_num[31:4] = 28'h12_34_56_7;
+
+    field {
+      hw   = na;
+      sw   = r;
+      desc = "This field represents the chips revision number";
+    } rev_num[3:0] = 4'b00_01;
+  } chip_id_reg @ 0x0;
+
+  reg {
+    name = "Enable register";
+    desc = "Toggle the peripheral enable on write";
+
+    field {
+      name = "Enable toggle";
+      hw = r;
+      sw = w;
+      onwrite = wot;
+    } enable[0:0];
+  } enable @ 0x4;
+};

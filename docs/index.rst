@@ -48,3 +48,4 @@ Links
     :hidden:
 
     self
+    using_with_sphinx
