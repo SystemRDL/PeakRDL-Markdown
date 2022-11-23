@@ -1,0 +1,13 @@
+[paths]
+source =
+    src/peakrdl_markdown
+    */site-packages/*/peakrdl_markdown
+    */site-packages/peakrdl_markdown
+
+[report]
+exclude_lines =
+    pragma: no cover
+    raise RuntimeError
+    raise NotImplementedError
+    msg.fatal
+    msg.error
