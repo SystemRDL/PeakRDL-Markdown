@@ -23,6 +23,9 @@
 				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
 				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
 				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+				"python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
+				"python.linting.mypyPath": "${workspaceFolder}/.venv/bin/mypy",
+				"python.venvPath": "${workspaceFolder}/.venv",
 			},
 
 			// Add the IDs of extensions you want installed when the container is created.

@@ -556,6 +556,14 @@ toml = "*"
 virtualenv = ">=20.0.8"
 
 [[package]]
+name = "py-markdown-table"
+version = "0.3.3"
+description = "A package used to generate basic markdown tables from a list of dicts"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "pycodestyle"
 version = "2.9.1"
 description = "Python style guide checker"
@@ -991,7 +999,7 @@ cli = ["peakrdl"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.2"
-content-hash = "3c99d32516ade8faad4a521a7d9d7bc649bbf4c48cd1242c8b38745305e39240"
+content-hash = "355d4bc3dd77aa9c1c1464a845a02e9167bcf1f13870ec6b1f01401b1157d3d8"
 
 [metadata.files]
 alabaster = [
@@ -1321,6 +1329,10 @@ pluggy = [
 pre-commit = [
     {file = "pre_commit-2.20.0-py2.py3-none-any.whl", hash = "sha256:51a5ba7c480ae8072ecdb6933df22d2f812dc897d5fe848778116129a681aac7"},
     {file = "pre_commit-2.20.0.tar.gz", hash = "sha256:a978dac7bc9ec0bcee55c18a277d553b0f419d259dadb4b9418ff2d00eb43959"},
+]
+py-markdown-table = [
+    {file = "py-markdown-table-0.3.3.tar.gz", hash = "sha256:a82b7fb481729a6ac612c611c29b0ce84ad0bc96b6d09a9bb777f543f9c8c917"},
+    {file = "py_markdown_table-0.3.3-py3-none-any.whl", hash = "sha256:fefa8aeb1ce7a89971e633dde89e3890aecf5f7206a6b8c8279820b6fa62d815"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},
