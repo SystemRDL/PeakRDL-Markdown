@@ -16,12 +16,12 @@ if TYPE_CHECKING:
 class Exporter:  # pylint: disable=too-few-public-methods
     """PeakRDL Markdown exporter plug-in."""
 
-    short_desc = "Export the register model to Python"
+    short_desc = "Export the register model to Markdown"
 
     def do_export(
         self, top_node: "Union[AddrmapNode, RootNode]", options: "argparse.Namespace"
     ):
-        """Perform the export of SystemRDL node to Python.
+        """Perform the export of SystemRDL node to Markdown.
 
         Arguments:
             top_node -- top node to export.
