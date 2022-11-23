@@ -25,6 +25,8 @@
 				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
 				"python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
 				"python.linting.mypyPath": "${workspaceFolder}/.venv/bin/mypy",
+				"python.linting.pycodestylePath": "${workspaceFolder}/.venv/bin/pycodestyle",
+				"python.linting.pydocstylePath": "${workspaceFolder}/.venv/bin/pydocstyle",
 				"python.venvPath": "${workspaceFolder}/.venv",
 			},
 
