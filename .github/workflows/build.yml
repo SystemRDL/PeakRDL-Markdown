@@ -35,7 +35,7 @@ jobs:
           cache: "poetry"
 
       - name: Install dependencies
-        run: poetry install --only main,test,setuptools-fix --sync
+        run: poetry install --only main,test --sync
 
       - name: Test
         run: poetry run pytest test/ --cov=peakrdl_markdown --cov-report=term --cov-report=xml:output/coverage/cov.xml --cov-report=html:output/coverage/html
@@ -67,7 +67,7 @@ jobs:
           python-version: "3.10"
           cache: "poetry"
       - name: Install dependencies
-        run: poetry install --only main,lint,setuptools-fix --sync
+        run: poetry install --only main,lint --sync
       - name: Run formatter
         run: poetry run ${{ matrix.tool }} src/ test/
 
@@ -83,7 +83,7 @@ jobs:
           python-version: "3.10"
           cache: "poetry"
       - name: Install dependencies
-        run: poetry install --only main,doc,setuptools-fix --sync
+        run: poetry install --only main,doc --sync
       - name: Build docs
         run: poetry run make -C docs/ html
       - name: Upload the built documentation

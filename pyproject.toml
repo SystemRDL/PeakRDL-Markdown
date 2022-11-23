@@ -50,10 +50,6 @@ linuxdoc = "^20211220"
 Sphinx = "^5.2.3"
 sphinx-rtd-theme = "^1.0.0"
 
-# To be removed once the upstream fix is propagated.
-[tool.poetry.group.setuptools-fix.dependencies]
-setuptools = "==65.5.1"
-
 [tool.poetry.plugins."peakrdl.exporters"]
 "markdown" = "peakrdl_markdown.__peakrdl__:Exporter"
 
