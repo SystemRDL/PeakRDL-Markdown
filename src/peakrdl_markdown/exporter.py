@@ -148,17 +148,18 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             raise ValueError("The output file is not Markdown file.")
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
-        # Generate the file.
+        # Run generation.
+        gen = self._add_addrmap_regfile(top, node.env.msg).generated
+
+        # Write to the file.
         with open(output_path, "w", encoding="UTF-8") as output:
             output.write(
-                (
-                    "<!---\n"
-                    "Markdown description for SystemRDL register map.\n\n"
-                    f"Don't override. Generated from: {generated_from}\n"
-                    "-->\n"
-                )
-                + self._add_addrmap_regfile(top, node.env.msg).generated
+                "<!---\n"
+                "Markdown description for SystemRDL register map.\n\n"
+                f"Don't override. Generated from: {generated_from}\n"
+                "-->\n"
             )
+            output.write(gen)
 
     def _add_addrmap_regfile(
         self,
