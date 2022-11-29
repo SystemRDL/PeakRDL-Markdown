@@ -49,3 +49,4 @@ Links
 
     self
     using_with_sphinx
+    CHANGELOG
