@@ -91,7 +91,16 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             node -- node to generate the header for.
             heading_level -- Markdown heading level.
         """
-        ret = self._heading(heading_level, node.inst_name)
+        if isinstance(node, AddrmapNode):
+            node_type_name = "address map"
+        elif isinstance(node, RegfileNode):
+            node_type_name = "register file"
+        elif isinstance(node, RegNode):
+            node_type_name = "register"
+        else:
+            node_type_name = "addressable node"
+
+        ret = self._heading(heading_level, f"{node.inst_name} {node_type_name}")
         ret += self._addrnode_info_md(node) + "\n\n"
         desc = node.get_html_desc()
         if desc is not None:
@@ -297,6 +306,6 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         gen = ""
         desc = node.get_html_desc()
         if desc is not None:
-            gen = self._heading(4, node.inst_name) + desc + "\n"
+            gen = self._heading(4, f"{node.inst_name} field") + desc + "\n"
 
         return MarkdownExporter.GenStageOutput(node, table_row, gen)

@@ -4,7 +4,7 @@ Markdown description for SystemRDL register map.
 Don't override. Generated from:   example/accelera_generic_example.rdl
 -->
 
-## some_register_map
+## some_register_map address map
 
 - Absolute Address: 0x0
 - Base Offset: 0x0
@@ -46,7 +46,7 @@ how RDL can be utilized in various situations.</p>
 |0x103C|vc_pkt_count[8][2]|                  —                 |
 |0x2000|   empty_addrmap  |Empty addrmap with unsupported node.|
 
-### chip_id_reg
+### chip_id_reg register
 
 - Absolute Address: 0x0
 - Base Offset: 0x0
@@ -58,11 +58,11 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|---------|----|
 |31:4| part_num |   r  |0x1234567|  — |
 
-#### part_num
+#### part_num field
 
 <p>This field represents the chips part number</p>
 
-### link_status
+### link_status register
 
 - Absolute Address: 0x4
 - Base Offset: 0x4
@@ -75,23 +75,23 @@ how RDL can be utilized in various situations.</p>
 | 11:8|   port2  |   r  |  —  |  — |
 |15:12|   port3  |   r  |  —  |  — |
 
-#### port0
+#### port0 field
 
 <p>Status of a Serdes Link</p>
 
-#### port1
+#### port1 field
 
 <p>Status of a Serdes Link</p>
 
-#### port2
+#### port2 field
 
 <p>Status of a Serdes Link</p>
 
-#### port3
+#### port3 field
 
 <p>Status of a Serdes Link</p>
 
-### myRegInst
+### myRegInst register
 
 - Absolute Address: 0x10
 - Base Offset: 0x10
@@ -116,71 +116,71 @@ how RDL can be utilized in various situations.</p>
 |29:28|  data14  |rw, rclr| 0x2 |  — |
 |31:30|  data15  |rw, rclr| 0x3 |  — |
 
-#### data0
+#### data0 field
 
 <p>My example 2bit status field</p>
 
-#### data1
+#### data1 field
 
 <p>My example 2bit status field</p>
 
-#### data2
+#### data2 field
 
 <p>My example 2bit status field</p>
 
-#### data3
+#### data3 field
 
 <p>My example 2bit status field</p>
 
-#### data4
+#### data4 field
 
 <p>My example 2bit status field</p>
 
-#### data5
+#### data5 field
 
 <p>My example 2bit status field</p>
 
-#### data6
+#### data6 field
 
 <p>My example 2bit status field</p>
 
-#### data7
+#### data7 field
 
 <p>My example 2bit status field</p>
 
-#### data8
+#### data8 field
 
 <p>My example 2bit status field</p>
 
-#### data9
+#### data9 field
 
 <p>My example 2bit status field</p>
 
-#### data10
+#### data10 field
 
 <p>My example 2bit status field</p>
 
-#### data11
+#### data11 field
 
 <p>My example 2bit status field</p>
 
-#### data12
+#### data12 field
 
 <p>My example 2bit status field</p>
 
-#### data13
+#### data13 field
 
 <p>My example 2bit status field</p>
 
-#### data14
+#### data14 field
 
 <p>My example 2bit status field</p>
 
-#### data15
+#### data15 field
 
 <p>My example 2bit status field</p>
 
-### spi4_pkt_count
+### spi4_pkt_count register
 
 - Absolute Address: 0x20
 - Base Offset: 0x20
@@ -191,15 +191,15 @@ how RDL can be utilized in various situations.</p>
 | 15:0|   port1  |rw, rclr|  —  |  — |
 |31:16|   port0  |rw, rclr|  —  |  — |
 
-#### port1
+#### port1 field
 
 <p>Number of certain packet type seen</p>
 
-#### port0
+#### port0 field
 
 <p>Number of certain packet type seen</p>
 
-### gige_pkt_count_reg
+### gige_pkt_count_reg register
 
 - Absolute Address: 0x24
 - Base Offset: 0x24
@@ -212,23 +212,23 @@ how RDL can be utilized in various situations.</p>
 |23:16|   port1  |rw, rclr|  —  |  — |
 |31:24|   port0  |rw, rclr|  —  |  — |
 
-#### port3
+#### port3 field
 
 <p>Number of certain packet type seen</p>
 
-#### port2
+#### port2 field
 
 <p>Number of certain packet type seen</p>
 
-#### port1
+#### port1 field
 
 <p>Number of certain packet type seen</p>
 
-#### port0
+#### port0 field
 
 <p>Number of certain packet type seen</p>
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x100
 - Base Offset: 0x100
@@ -243,7 +243,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x100
 - Base Offset: 0x0
@@ -253,7 +253,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x104
 - Base Offset: 0x4
@@ -263,7 +263,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x108
 - Base Offset: 0x8
@@ -276,7 +276,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x110
 - Base Offset: 0x100
@@ -291,7 +291,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x110
 - Base Offset: 0x0
@@ -301,7 +301,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x114
 - Base Offset: 0x4
@@ -311,7 +311,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x118
 - Base Offset: 0x8
@@ -324,7 +324,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x120
 - Base Offset: 0x100
@@ -339,7 +339,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x120
 - Base Offset: 0x0
@@ -349,7 +349,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x124
 - Base Offset: 0x4
@@ -359,7 +359,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x128
 - Base Offset: 0x8
@@ -372,7 +372,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x130
 - Base Offset: 0x100
@@ -387,7 +387,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x130
 - Base Offset: 0x0
@@ -397,7 +397,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x134
 - Base Offset: 0x4
@@ -407,7 +407,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x138
 - Base Offset: 0x8
@@ -420,7 +420,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x140
 - Base Offset: 0x100
@@ -435,7 +435,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x140
 - Base Offset: 0x0
@@ -445,7 +445,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x144
 - Base Offset: 0x4
@@ -455,7 +455,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x148
 - Base Offset: 0x8
@@ -468,7 +468,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x150
 - Base Offset: 0x100
@@ -483,7 +483,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x150
 - Base Offset: 0x0
@@ -493,7 +493,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x154
 - Base Offset: 0x4
@@ -503,7 +503,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x158
 - Base Offset: 0x8
@@ -516,7 +516,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x160
 - Base Offset: 0x100
@@ -531,7 +531,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x160
 - Base Offset: 0x0
@@ -541,7 +541,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x164
 - Base Offset: 0x4
@@ -551,7 +551,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x168
 - Base Offset: 0x8
@@ -564,7 +564,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-## fifo_port
+## fifo_port register file
 
 - Absolute Address: 0x170
 - Base Offset: 0x100
@@ -579,7 +579,7 @@ how RDL can be utilized in various situations.</p>
 |  0x4 |   tail   |  — |
 |  0x8 |  status  |  — |
 
-### head
+### head register
 
 - Absolute Address: 0x170
 - Base Offset: 0x0
@@ -589,7 +589,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### tail
+### tail register
 
 - Absolute Address: 0x174
 - Base Offset: 0x4
@@ -599,7 +599,7 @@ how RDL can be utilized in various situations.</p>
 |----|----------|------|-----|----|
 |31:0|   data   |  rw  |  —  |  — |
 
-### status
+### status register
 
 - Absolute Address: 0x178
 - Base Offset: 0x8
@@ -612,7 +612,7 @@ how RDL can be utilized in various situations.</p>
 |  4 |almost_empty|  rw  | 0x1 |  — |
 |  5 | almost_full|  rw  | 0x0 |  — |
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1000
 - Base Offset: 0x1000
@@ -626,15 +626,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1004
 - Base Offset: 0x1000
@@ -648,15 +648,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1008
 - Base Offset: 0x1000
@@ -670,15 +670,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x100C
 - Base Offset: 0x1000
@@ -692,15 +692,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1010
 - Base Offset: 0x1000
@@ -714,15 +714,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1014
 - Base Offset: 0x1000
@@ -736,15 +736,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1018
 - Base Offset: 0x1000
@@ -758,15 +758,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x101C
 - Base Offset: 0x1000
@@ -780,15 +780,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1020
 - Base Offset: 0x1000
@@ -802,15 +802,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1024
 - Base Offset: 0x1000
@@ -824,15 +824,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1028
 - Base Offset: 0x1000
@@ -846,15 +846,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x102C
 - Base Offset: 0x1000
@@ -868,15 +868,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1030
 - Base Offset: 0x1000
@@ -890,15 +890,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1034
 - Base Offset: 0x1000
@@ -912,15 +912,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x1038
 - Base Offset: 0x1000
@@ -934,15 +934,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-### vc_pkt_count
+### vc_pkt_count register
 
 - Absolute Address: 0x103C
 - Base Offset: 0x1000
@@ -956,15 +956,15 @@ how RDL can be utilized in various situations.</p>
 |30:0| vc_count |rw, rclr| 0x0 |  — |
 | 31 |  active  |   rw   | 0x1 |  — |
 
-#### vc_count
+#### vc_count field
 
 <p>Number of certain packet type seen</p>
 
-#### active
+#### active field
 
 <p>VC is Active</p>
 
-## empty_addrmap
+## empty_addrmap address map
 
 - Absolute Address: 0x2000
 - Base Offset: 0x2000
