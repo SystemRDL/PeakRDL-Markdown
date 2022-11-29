@@ -19,7 +19,8 @@ class Exporter:  # pylint: disable=too-few-public-methods
     short_desc = "Generate Markdown documentation"
     long_desc = "Export the register model to Markdown"
 
-    def add_exporter_arguments(self, arg_group: "argparse.ArgumentParser") -> None:
+    def add_exporter_arguments(self, arg_group: "argparse.ArgumentParser"):
+        """Add PeakRDL exporter arguments."""
         arg_group.add_argument(
             "--depth",
             dest="depth",
