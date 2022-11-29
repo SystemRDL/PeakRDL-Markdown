@@ -129,7 +129,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
 
         return table_row
 
-    def export(
+    def export(  # pylint: disable=too-many-arguments
         self,
         node: Union[AddrmapNode, RootNode],
         output_path: str,
