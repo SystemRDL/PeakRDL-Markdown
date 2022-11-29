@@ -1,10 +1,11 @@
 <!---
 Markdown description for SystemRDL register map.
 
-Don't override. Generated from:   example/minimal_example.rdl
+Don't override. Generated from: some_register_map
+  - example/minimal_example.rdl
 -->
 
-## some_register_map
+## some_register_map address map
 
 - Absolute Address: 0x0
 - Base Offset: 0x0
@@ -18,7 +19,7 @@ how RDL can be utilized in various situations.</p>
 |  0x0 |chip_id_reg|This chip part number and revision #|
 |  0x4 |   enable  |           Enable register          |
 
-### chip_id_reg
+### chip_id_reg register
 
 - Absolute Address: 0x0
 - Base Offset: 0x0
@@ -31,15 +32,15 @@ how RDL can be utilized in various situations.</p>
 | 3:0|  rev_num |   r  |   0x1   |  — |
 |31:4| part_num |   r  |0x1234567|  — |
 
-#### rev_num
+#### rev_num field
 
 <p>This field represents the chips revision number</p>
 
-#### part_num
+#### part_num field
 
 <p>This field represents the chips part number</p>
 
-### enable
+### enable register
 
 - Absolute Address: 0x4
 - Base Offset: 0x4

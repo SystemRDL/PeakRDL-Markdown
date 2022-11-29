@@ -9,13 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Add node type to headings
 
+### Fixed
+- Fix *Generated from* section construction.
+
 ## [0.1.1]
 
 ### Changed
-- Don't start writing to the file until it's generated
+- Don't start writing to the file until it's generated.
 
 ### Fixed
-- Fix error on no supported members
+- Fix error on no supported members.
 
 ## [0.1.0]
 

@@ -1,7 +1,8 @@
 <!---
 Markdown description for SystemRDL register map.
 
-Don't override. Generated from:   example/accelera_generic_example.rdl
+Don't override. Generated from: some_register_map
+  - example/accelera_generic_example.rdl
 -->
 
 ## some_register_map address map

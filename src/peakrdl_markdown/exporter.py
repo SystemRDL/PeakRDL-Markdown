@@ -150,7 +150,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
 
         generated_from = top_name
         if input_files is not None:
-            generated_from = "  " + ("\n" + "  ").join(f for f in input_files)
+            generated_from += "\n  - " + "\n  - ".join(f for f in input_files)
 
         # Ensure proper format of the output path and that the directory exists.
         if not output_path.endswith(".md"):
