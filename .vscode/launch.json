@@ -26,6 +26,22 @@
             ],
             "justMyCode": true,
             "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Python: Exporter (depth: 1)",
+            "type": "python",
+            "request": "launch",
+            "module": "peakrdl",
+            "args": [
+                "markdown",
+                "example/accelera_generic_example.rdl",
+                "-o",
+                "example/accelera_generic_example_depth_1.md",
+                "--depth",
+                "1"
+            ],
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}"
         }
     ]
 }

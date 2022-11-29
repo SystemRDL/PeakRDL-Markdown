@@ -135,6 +135,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         output_path: str,
         input_files: Optional[List[str]] = None,
         rename: Optional[str] = None,
+        depth: int = 0,
     ):
         """Export the `node` to generated Python interface file.
 
@@ -143,6 +144,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             input_files -- list of input files.
             output_path -- path to the exported file.
             rename -- name to rename the top-level to.
+            depth -- depth of generation (0 means all)
         """
         # Get the top node.
         top = node.top if isinstance(node, RootNode) else node
@@ -158,7 +160,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
         # Run generation.
-        gen = self._add_addrmap_regfile(top, node.env.msg).generated
+        gen = self._add_addrmap_regfile(top, node.env.msg, depth - 1).generated
 
         # Write to the file.
         with open(output_path, "w", encoding="UTF-8") as output:
@@ -174,12 +176,14 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         self,
         node: Union[AddrmapNode, RegfileNode],
         msg: MessageHandler,
+        depth: int,
     ) -> GenStageOutput:
         """Generate addrmap or regfile.
 
         Arguments:
             node -- RegfileNode or AddrmapNode.
             msg -- message handler from top-level.
+            depth -- depth of generation left.
 
         Keyword Arguments:
             is_top -- if the current not is the top node. If True the
@@ -192,7 +196,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         member_gen: str = ""
         for child in node.children(unroll=True, skip_not_present=False):
             if isinstance(child, (AddrmapNode, RegfileNode)):
-                output = self._add_addrmap_regfile(child, msg)
+                output = self._add_addrmap_regfile(child, msg, depth - 1)
                 member_gen += output.generated
                 members.append(output)
             elif isinstance(child, RegNode):
@@ -229,7 +233,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         gen += "\n"
 
         return MarkdownExporter.GenStageOutput(
-            node, self._addrnode_table_row(node), gen + member_gen
+            node,
+            self._addrnode_table_row(node),
+            gen + (member_gen if depth != 0 else ""),
         )
 
     def _add_reg(self, node: RegNode, msg: MessageHandler) -> GenStageOutput:

@@ -16,7 +16,17 @@ if TYPE_CHECKING:
 class Exporter:  # pylint: disable=too-few-public-methods
     """PeakRDL Markdown exporter plug-in."""
 
-    short_desc = "Export the register model to Markdown"
+    short_desc = "Generate Markdown documentation"
+    long_desc = "Export the register model to Markdown"
+
+    def add_exporter_arguments(self, arg_group: "argparse.ArgumentParser") -> None:
+        arg_group.add_argument(
+            "--depth",
+            dest="depth",
+            default=0,
+            type=int,
+            help="Depth of generation (0 means all)",
+        )
 
     def do_export(
         self, top_node: "Union[AddrmapNode, RootNode]", options: "argparse.Namespace"
@@ -32,4 +42,5 @@ class Exporter:  # pylint: disable=too-few-public-methods
             options.output,
             input_files=options.input_files,
             rename=options.inst_name,
+            depth=options.depth,
         )

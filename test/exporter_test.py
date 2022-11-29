@@ -11,7 +11,11 @@ from peakrdl_markdown.exporter import MarkdownExporter
 
 
 def basic_export_diff(
-    in_path: str, ref_out_path: str, out_path: str, rename: Optional[str] = None
+    in_path: str,
+    ref_out_path: str,
+    out_path: str,
+    rename: Optional[str] = None,
+    depth: int = 0,
 ):
     """Test exporter by comparing with a reference file.
 
@@ -31,6 +35,7 @@ def basic_export_diff(
         out_path,
         input_files=[in_path],
         rename=rename,
+        depth=depth,
     )
 
     # Check if the generated file matches reference file.
@@ -56,6 +61,17 @@ def test_exporter_basic_accelera():
         "example/accelera_generic_example.md",
         "output/accelera_generic_example.md",
         "some_register_map",
+    )
+
+
+def test_exporter_basic_accelera_depth_1():
+    """Test Accelera generic example with depth=1."""
+    basic_export_diff(
+        "example/accelera_generic_example.rdl",
+        "example/accelera_generic_example_depth_1.md",
+        "output/accelera_generic_example_depth_1.md",
+        "some_register_map",
+        depth=1,
     )
 
 
