@@ -198,21 +198,24 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
 
         gen: str = self._addrnode_header(node, 2)
 
-        # Find the maximum width of the offset hex int and format the offset
-        # for all members.
-        base_addr_digits = max(
-            map(lambda m: len(f'{m.table_row["Offset"]:X}'), members)
-        )
-        for member in members:
-            member.table_row[
-                "Offset"
-            ] = f'0x{member.table_row["Offset"]:0{base_addr_digits}X}'
+        if len(members) == 0:
+            gen += "No supported members.\n"
+        else:
+            # Find the maximum width of the offset hex int and format the
+            # offset for all members.
+            base_addr_digits = max(
+                map(lambda m: len(f'{m.table_row["Offset"]:X}'), members)
+            )
+            for member in members:
+                member.table_row[
+                    "Offset"
+                ] = f'0x{member.table_row["Offset"]:0{base_addr_digits}X}'
 
-        gen += (
-            markdownTable([*map(lambda m: m.table_row, members)])
-            .setParams(row_sep="markdown", quote=False)
-            .getMarkdown()
-        )
+            gen += (
+                markdownTable([*map(lambda m: m.table_row, members)])
+                .setParams(row_sep="markdown", quote=False)
+                .getMarkdown()
+            )
 
         gen += "\n"
 

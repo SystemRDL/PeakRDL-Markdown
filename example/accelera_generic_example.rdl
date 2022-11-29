@@ -188,4 +188,13 @@ addrmap some_register_map {
   fifoRfile          fifo_port[8]        @0x100 += 0x10;     // Create 8 Instances of Fifo Reg File Starting at Address=0x100
   vc_pkt_count_reg   vc_pkt_count[8][2]  @0x1000 +=0x4;
 
+  addrmap {
+      name = "Empty addrmap with unsupported node.";
+
+      external mem {
+          mementries = 1;
+          memwidth = 32;
+      } REGS @ 0x00;
+  } empty_addrmap @0x2000;
+
 };                                                         // End some_register_map

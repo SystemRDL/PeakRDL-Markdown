@@ -8,7 +8,7 @@ Don't override. Generated from:   example/accelera_generic_example.rdl
 
 - Absolute Address: 0x0
 - Base Offset: 0x0
-- Size: 0x1040
+- Size: 0x2004
 
 <p>This address map contains some example registers to show
 how RDL can be utilized in various situations.</p>
@@ -44,6 +44,7 @@ how RDL can be utilized in various situations.</p>
 |0x1034|vc_pkt_count[8][2]|                  —                 |
 |0x1038|vc_pkt_count[8][2]|                  —                 |
 |0x103C|vc_pkt_count[8][2]|                  —                 |
+|0x2000|   empty_addrmap  |Empty addrmap with unsupported node.|
 
 ### chip_id_reg
 
@@ -962,3 +963,12 @@ how RDL can be utilized in various situations.</p>
 #### active
 
 <p>VC is Active</p>
+
+## empty_addrmap
+
+- Absolute Address: 0x2000
+- Base Offset: 0x2000
+- Size: 0x4
+
+No supported members.
+
