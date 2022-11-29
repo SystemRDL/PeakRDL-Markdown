@@ -22,6 +22,7 @@ jobs:
           - "3.8"
           - "3.9"
           - "3.10"
+          - "3.11"
 
     steps:
       - uses: actions/checkout@v3
@@ -61,10 +62,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install Poetry
         run: pipx install poetry
-      - name: Set up Python 3.10
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: "poetry"
       - name: Install dependencies
         run: poetry install --only main,lint --sync
@@ -77,10 +78,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install Poetry
         run: pipx install poetry
-      - name: Set up Python 3.10
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: "poetry"
       - name: Install dependencies
         run: poetry install --only main,doc --sync
@@ -103,10 +104,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install Poetry
         run: pipx install poetry
-      - name: Set up Python 3.10
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.11"
           cache: "poetry"
       - name: Build the package
         run: poetry build
