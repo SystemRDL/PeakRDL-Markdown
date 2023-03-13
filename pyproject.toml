@@ -28,7 +28,7 @@ py-markdown-table = "^0.3.3"
 cli = ["peakrdl"]
 
 [tool.poetry.group.dev.dependencies]
-peakrdl = "^0.3.0"
+peakrdl = "^0.7.0"
 pre-commit = "^2.20.0"
 
 [tool.poetry.group.lint.dependencies]
