@@ -15,19 +15,13 @@ Install from `PyPi`_ using pip:
 
 .. _PyPi: https://pypi.org/project/peakrdl-markdown
 
-If you want to use official PeakRDL CLI you can install with ``cli`` extra:
-
-.. code-block:: bash
-
-    python3 -m pip install peakrdl-markdown[cli]
-
 Quick Start
 -----------
 
 Exporting to Python interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The module integrates with PeakRDL CLI interface (via optional extra ``cli``):
+The module integrates with PeakRDL CLI interface:
 
 .. code-block:: bash
 

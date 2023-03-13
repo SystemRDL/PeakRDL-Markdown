@@ -15,9 +15,9 @@ project](https://peakrdl.readthedocs.io).
 ## Usage
 
 PeakRDL project provides a standard CLI interface. It can be installed directly
-via pip or by installing this package with `cli` extra:
+via pip:
 
-    $ pip install peakrdl-markdown[cli]
+    $ pip install peakrdl-markdown
 
 Then this package can be used with the following command:
 

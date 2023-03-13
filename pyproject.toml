@@ -21,14 +21,10 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.7.2"
 systemrdl-compiler = "^1.25.0"
-peakrdl = { version = "^0.7.0", optional = true }
+peakrdl = "^0.7.0"
 py-markdown-table = "^0.3.3"
 
-[tool.poetry.extras]
-cli = ["peakrdl"]
-
 [tool.poetry.group.dev.dependencies]
-peakrdl = "^0.7.0"
 pre-commit = "^2.20.0"
 
 [tool.poetry.group.lint.dependencies]
