@@ -4,7 +4,7 @@ __authors__ = ["Marek Pikuła <marek.pikula at embevity.com>"]
 
 from typing import TYPE_CHECKING
 
-from peakrdl.plugins.exporter import ExporterSubcommandPlugin #pylint: disable=import-error
+from peakrdl.plugins.exporter import ExporterSubcommandPlugin  # type: ignore
 
 from .exporter import MarkdownExporter
 
@@ -21,7 +21,7 @@ class Exporter(ExporterSubcommandPlugin):  # pylint: disable=too-few-public-meth
     short_desc = "Generate Markdown documentation"
     long_desc = "Export the register model to Markdown"
 
-    def add_exporter_arguments(self, arg_group: "argparse.ArgumentParser"):
+    def add_exporter_arguments(self, arg_group: "argparse.ArgumentParser"):  # type: ignore
         """Add PeakRDL exporter arguments."""
         arg_group.add_argument(
             "--depth",
