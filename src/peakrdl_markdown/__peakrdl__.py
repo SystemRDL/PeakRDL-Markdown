@@ -4,6 +4,8 @@ __authors__ = ["Marek Pikuła <marek.pikula at embevity.com>"]
 
 from typing import TYPE_CHECKING
 
+from peakrdl.plugins.exporter import ExporterSubcommandPlugin #pylint: disable=import-error
+
 from .exporter import MarkdownExporter
 
 if TYPE_CHECKING:
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     from systemrdl.node import AddrmapNode, RootNode  # type: ignore
 
 
-class Exporter:  # pylint: disable=too-few-public-methods
+class Exporter(ExporterSubcommandPlugin):  # pylint: disable=too-few-public-methods
     """PeakRDL Markdown exporter plug-in."""
 
     short_desc = "Generate Markdown documentation"
