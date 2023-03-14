@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "peakrdl_markdown"
-version = "0.1.3"
+version = "0.1.4"
 description = "Export Markdown description from the systemrdl-compiler register model"
 authors = ["Marek Pikuła <marek.pikula@embevity.com>"]
 maintainers = ["Marek Pikuła <marek.pikula@embevity.com>"]
@@ -19,7 +19,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7.2"
+python = "^3.7.0"
 systemrdl-compiler = "^1.25.0"
 peakrdl = "^0.7.0"
 py-markdown-table = "^0.3.3"
@@ -33,7 +33,7 @@ isort = "^5.10.1"
 mypy = "^0.971"
 pycodestyle = "^2.9.1"
 pydocstyle = "^6.1.1"
-pylint = "^2.15.3"
+pylint = "<2.15"  # Python 3.7.0 requirement.
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.1.3"
