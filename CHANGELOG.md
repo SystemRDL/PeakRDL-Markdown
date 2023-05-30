@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Change all namespace references to SystemRDL
 
+## [0.1.5]
+
+### Changed
+- Update dependencies
+
 ## [0.1.4]
 
 ### Changed
@@ -47,7 +52,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Basic SystemRDL Markdown exporter.
 
-[Unreleased]: https://github.com/SystemRDL/PeakRDL-Markdown/compare/v0.1.4...main
+[Unreleased]: https://github.com/SystemRDL/PeakRDL-Markdown/compare/v0.1.5...main
+[0.1.5]: https://github.com/SystemRDL/PeakRDL-Markdown/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/SystemRDL/PeakRDL-Markdown/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/SystemRDL/PeakRDL-Markdown/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/SystemRDL/PeakRDL-Markdown/compare/v0.1.1...v0.1.2
