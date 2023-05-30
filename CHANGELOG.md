@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Change all namespace references to SystemRDL
+
 ## [0.1.4]
 
 ### Changed

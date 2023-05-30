@@ -1,6 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/peakrdl-markdown/badge/?version=latest)](http://peakrdl-markdown.readthedocs.io)
-[![build](https://github.com/MarekPikula/PeakRDL-Markdown/workflows/build/badge.svg)](https://github.com/MarekPikula/PeakRDL-Markdown/actions?query=workflow%3Abuild+branch%3Amain)
-[![Coverage Status](https://coveralls.io/repos/github/MarekPikula/PeakRDL-Markdown/badge.svg?branch=main)](https://coveralls.io/github/MarekPikula/PeakRDL-Markdown?branch=main)
+[![build](https://github.com/SystemRDL/PeakRDL-Markdown/workflows/build/badge.svg)](https://github.com/SystemRDL/PeakRDL-Markdown/actions?query=workflow%3Abuild+branch%3Amain)
+[![Coverage Status](https://coveralls.io/repos/github/SystemRDL/PeakRDL-Markdown/badge.svg?branch=main)](https://coveralls.io/github/SystemRDL/PeakRDL-Markdown?branch=main)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/peakrdl-markdown.svg)](https://pypi.org/project/peakrdl-markdown)
 
 # PeakRDL-Markdown

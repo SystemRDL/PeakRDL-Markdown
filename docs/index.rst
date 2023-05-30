@@ -31,9 +31,9 @@ The module integrates with PeakRDL CLI interface:
 Links
 -----
 
-- `Source repository <https://github.com/MarekPikula/PeakRDL-Markdown>`_
-- `Release Notes <https://github.com/MarekPikula/PeakRDL-Markdown/releases>`_
-- `Issue tracker <https://github.com/MarekPikula/PeakRDL-Markdown/issues>`_
+- `Source repository <https://github.com/SystemRDL/PeakRDL-Markdown>`_
+- `Release Notes <https://github.com/SystemRDL/PeakRDL-Markdown/releases>`_
+- `Issue tracker <https://github.com/SystemRDL/PeakRDL-Markdown/issues>`_
 - `PyPi <https://pypi.org/project/peakrdl-markdown>`_
 
 
