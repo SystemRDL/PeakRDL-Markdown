@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "peakrdl_markdown"
-version = "0.1.4"
+version = "0.1.5"
 description = "Export Markdown description from the systemrdl-compiler register model"
-authors = ["Marek Pikuła <marek.pikula@embevity.com>"]
-maintainers = ["Marek Pikuła <marek.pikula@embevity.com>"]
+authors = ["Marek Pikuła <marek@serenitycode.dev>"]
+maintainers = ["Marek Pikuła <marek@serenitycode.dev>"]
 license = "GPL-3.0-only"
 classifiers = [
     "Development Status :: 4 - Beta",
