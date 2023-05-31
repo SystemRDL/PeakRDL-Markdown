@@ -3,14 +3,19 @@
 {
 	"name": "Python 3",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"context": "..",
+		"dockerfile": "./Dockerfile",
+		"context": ".",
 		"args": {
 			// Update 'VARIANT' to pick a Python version: 3, 3.10, 3.9, 3.8, 3.7, 3.6
 			// Append -bullseye or -buster to pin to an OS version.
 			// Use -bullseye variants on local on arm64/Apple Silicon.
-			"VARIANT": "3.7",
-		}
+			"VARIANT": "3.7"
+		},
+		"cacheFrom": "ghcr.io/systemrdl/peakrdl-markdown/devcontainer"
+	},
+	"features": {
+		"ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
+		"ghcr.io/devcontainers-contrib/features/poetry:2": {}
 	},
 
 	// Configure tool-specific properties.
@@ -27,18 +32,22 @@
 				"python.linting.mypyPath": "${workspaceFolder}/.venv/bin/mypy",
 				"python.linting.pycodestylePath": "${workspaceFolder}/.venv/bin/pycodestyle",
 				"python.linting.pydocstylePath": "${workspaceFolder}/.venv/bin/pydocstyle",
-				"python.venvPath": "${workspaceFolder}/.venv",
+				"python.venvPath": "${workspaceFolder}/.venv"
 			},
 
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"bungcip.better-toml",
+				"charliermarsh.ruff",
+				"github.vscode-github-actions",
+				"GitHub.vscode-pull-request-github",
+				"mhutchie.git-graph",
 				"ms-python.python",
+				"njpwerner.autodocstring",
 				"ms-python.vscode-pylance",
 				"njpwerner.autodocstring",
 				"ryanluker.vscode-coverage-gutters",
-				"mhutchie.git-graph",
-				"GitHub.vscode-pull-request-github"
+				"streetsidesoftware.code-spell-checker"
 			]
 		}
 	},
@@ -47,12 +56,8 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "poetry config virtualenvs.in-project true && poetry install",
+	"postCreateCommand": "poetry install --all-extras",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode",
-	"features": {
-		"git": "os-provided",
-		"fish": "latest"
-	}
+	"remoteUser": "vscode"
 }
