@@ -971,5 +971,108 @@ how RDL can be utilized in various situations.</p>
 - Base Offset: 0x2000
 - Size: 0x4
 
-No supported members.
+|Offset|Identifier|Name|
+|------|----------|----|
+|  0x0 |   REGS   |  — |
 
+## REGS memory
+
+- Absolute Address: 0x2000
+- Base Offset: 0x0
+- Size: 0x4
+
+|Offset|Identifier|Name|
+|------|----------|----|
+|  0x0 |  regs[1] |  — |
+
+### regs register
+
+- Absolute Address: 0x2000
+- Base Offset: 0x0
+- Size: 0x4
+- Array Dimensions: [1]
+- Array Stride: 0x4
+- Total Size: 0x4
+
+| Bits|Identifier| Access |Reset|Name|
+|-----|----------|--------|-----|----|
+| 1:0 |   data0  |rw, rclr| 0x0 |  — |
+| 3:2 |   data1  |rw, rclr| 0x1 |  — |
+| 5:4 |   data2  |rw, rclr| 0x2 |  — |
+| 7:6 |   data3  |rw, rclr| 0x3 |  — |
+| 9:8 |   data4  |rw, rclr| 0x0 |  — |
+|11:10|   data5  |rw, rclr| 0x1 |  — |
+|13:12|   data6  |rw, rclr| 0x2 |  — |
+|15:14|   data7  |rw, rclr| 0x3 |  — |
+|17:16|   data8  |rw, rclr| 0x0 |  — |
+|19:18|   data9  |rw, rclr| 0x1 |  — |
+|21:20|  data10  |rw, rclr| 0x2 |  — |
+|23:22|  data11  |rw, rclr| 0x3 |  — |
+|25:24|  data12  |rw, rclr| 0x0 |  — |
+|27:26|  data13  |rw, rclr| 0x1 |  — |
+|29:28|  data14  |rw, rclr| 0x2 |  — |
+|31:30|  data15  |rw, rclr| 0x3 |  — |
+
+#### data0 field
+
+<p>My example 2bit status field</p>
+
+#### data1 field
+
+<p>My example 2bit status field</p>
+
+#### data2 field
+
+<p>My example 2bit status field</p>
+
+#### data3 field
+
+<p>My example 2bit status field</p>
+
+#### data4 field
+
+<p>My example 2bit status field</p>
+
+#### data5 field
+
+<p>My example 2bit status field</p>
+
+#### data6 field
+
+<p>My example 2bit status field</p>
+
+#### data7 field
+
+<p>My example 2bit status field</p>
+
+#### data8 field
+
+<p>My example 2bit status field</p>
+
+#### data9 field
+
+<p>My example 2bit status field</p>
+
+#### data10 field
+
+<p>My example 2bit status field</p>
+
+#### data11 field
+
+<p>My example 2bit status field</p>
+
+#### data12 field
+
+<p>My example 2bit status field</p>
+
+#### data13 field
+
+<p>My example 2bit status field</p>
+
+#### data14 field
+
+<p>My example 2bit status field</p>
+
+#### data15 field
+
+<p>My example 2bit status field</p>

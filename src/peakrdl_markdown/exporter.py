@@ -1,9 +1,14 @@
 """PeakRDL Markdown exporter."""
 
-__authors__ = ["Marek Pikuła <marek.pikula at embevity.com>"]
+__authors__ = [
+    "Marek Pikuła <marek.pikula at embevity.com>",
+    "Maciej Dudek <mdudek at antmicro.com>",
+]
 
 from collections import OrderedDict
 from dataclasses import dataclass
+from functools import reduce
+from operator import mul
 from pathlib import Path
 from typing import List, Optional, Union
 
@@ -13,6 +18,7 @@ from systemrdl.node import (  # type: ignore
     AddressableNode,
     AddrmapNode,
     FieldNode,
+    MemNode,
     Node,
     RegfileNode,
     RegNode,
@@ -54,9 +60,16 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         """Generate AddressableNode basic information dictionary."""
         ret: "OrderedDict[str, str]" = OrderedDict()
 
+        set_index = False
+        if node.is_array and node.current_idx is None:
+            node.current_idx = [0]
+            set_index = True
         ret["Absolute Address"] = f"0x{node.absolute_address:X}"
         ret["Base Offset"] = f"0x{node.raw_address_offset:X}"
-        ret["Size"] = f"0x{node.size:X}"
+        if node.is_array and node.array_dimensions is not None and set_index:
+            ret["Size"] = f"0x{node.size * reduce(mul, node.array_dimensions, 1):X}"
+        else:
+            ret["Size"] = f"0x{node.size:X}"
 
         if node.is_array:
             ret["Array Dimensions"] = str(node.array_dimensions)
@@ -84,21 +97,27 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             name = name.replace("\n", "")
         return name
 
-    def _addrnode_header(self, node: AddressableNode, heading_level: int) -> str:
+    def _addrnode_header(
+        self, node: AddressableNode, msg: MessageHandler, heading_level: int
+    ) -> str:
         """Get the AddressableNode header.
 
         Arguments:
             node -- node to generate the header for.
+            msg -- message handler from top-level.
             heading_level -- Markdown heading level.
         """
         if isinstance(node, AddrmapNode):
             node_type_name = "address map"
         elif isinstance(node, RegfileNode):
             node_type_name = "register file"
+        elif isinstance(node, MemNode):
+            node_type_name = "memory"
         elif isinstance(node, RegNode):
             node_type_name = "register"
         else:
             node_type_name = "addressable node"
+            msg.warning(f"Unsupported type of node ({node.__class__.__name__}).")
 
         ret = self._heading(heading_level, f"{node.inst_name} {node_type_name}")
         ret += self._addrnode_info_md(node) + "\n\n"
@@ -160,7 +179,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
         # Run generation.
-        gen = self._add_addrmap_regfile(top, node.env.msg, depth - 1).generated
+        gen = self._add_addrmap_regfile_mem(top, node.env.msg, depth - 1).generated
 
         # Write to the file.
         with open(output_path, "w", encoding="UTF-8") as output:
@@ -172,16 +191,16 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             )
             output.write(gen)
 
-    def _add_addrmap_regfile(
+    def _add_addrmap_regfile_mem(
         self,
-        node: Union[AddrmapNode, RegfileNode],
+        node: Union[AddrmapNode, RegfileNode, MemNode],
         msg: MessageHandler,
         depth: int,
     ) -> GenStageOutput:
-        """Generate addrmap or regfile.
+        """Generate addrmap, regfile or memory.
 
         Arguments:
-            node -- RegfileNode or AddrmapNode.
+            node -- MemNode, RegfileNode or AddrmapNode.
             msg -- message handler from top-level.
             depth -- depth of generation left.
 
@@ -194,9 +213,12 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         """
         members: List[MarkdownExporter.GenStageOutput] = []
         member_gen: str = ""
-        for child in node.children(unroll=True, skip_not_present=False):
-            if isinstance(child, (AddrmapNode, RegfileNode)):
-                output = self._add_addrmap_regfile(child, msg, depth - 1)
+        # Don't unroll register arrays when they are inside memories.
+        # Memories can contain hundreds of entires.
+        not_memory = not isinstance(node, MemNode)
+        for child in node.children(unroll=not_memory, skip_not_present=False):
+            if isinstance(child, (AddrmapNode, RegfileNode, MemNode)):
+                output = self._add_addrmap_regfile_mem(child, msg, depth - 1)
                 member_gen += output.generated
                 members.append(output)
             elif isinstance(child, RegNode):
@@ -209,7 +231,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
                     f"for {'/'.join(child.get_path_segments())}."
                 )
 
-        gen: str = self._addrnode_header(node, 2)
+        gen: str = self._addrnode_header(node, msg, 2)
 
         if len(members) == 0:
             gen += "No supported members.\n"
@@ -255,7 +277,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             field_gen += output.generated
             members.append(output)
 
-        gen: str = self._addrnode_header(node, 3)
+        gen: str = self._addrnode_header(node, msg, 3)
         gen += (
             markdownTable([*map(lambda m: m.table_row, members)])
             .setParams(row_sep="markdown", quote=False)

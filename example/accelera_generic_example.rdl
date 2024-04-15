@@ -194,6 +194,7 @@ addrmap some_register_map {
       external mem {
           mementries = 1;
           memwidth = 32;
+          myReg regs [1];
       } REGS @ 0x00;
   } empty_addrmap @0x2000;
 
