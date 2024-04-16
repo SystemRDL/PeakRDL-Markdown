@@ -95,6 +95,13 @@ jobs:
       - name: Run formatter
         run: poetry run ${{ matrix.tool }} src/ test/
 
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Dependency Review"
+        uses: actions/dependency-review-action@v4
+
   build-docs:
     runs-on: ubuntu-latest
     steps:
@@ -118,9 +125,10 @@ jobs:
 
   build-publish:
     needs:
-      - test
       - build-docs
+      - dependency-review
       - lint
+      - test
     if: github.ref == 'refs/heads/main'
     name: Build source distribution
     runs-on: ubuntu-latest
