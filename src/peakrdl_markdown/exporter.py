@@ -220,9 +220,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
                 map(lambda m: len(f'{m.table_row["Offset"]:X}'), members)
             )
             for member in members:
-                member.table_row[
-                    "Offset"
-                ] = f'0x{member.table_row["Offset"]:0{base_addr_digits}X}'
+                member.table_row["Offset"] = (
+                    f'0x{member.table_row["Offset"]:0{base_addr_digits}X}'
+                )
 
             gen += (
                 markdownTable([*map(lambda m: m.table_row, members)])
