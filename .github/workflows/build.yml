@@ -76,9 +76,9 @@ jobs:
       matrix:
         tool:
           - "black --check --diff"
+          - "isort --check --diff"
           - "mypy"
           - "pydocstyle"
-          - "pylint"
           - "ruff"
     steps:
       - uses: actions/checkout@v3
