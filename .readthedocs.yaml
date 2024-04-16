@@ -1,0 +1,19 @@
+# .readthedocs.yaml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+version: 2
+
+build:
+  os: ubuntu-lts-latest
+  tools:
+    python: "3.12"
+
+sphinx:
+  configuration: docs/conf.py
+
+# TODO: Move to Poetry export once
+# https://github.com/python-poetry/poetry-plugin-export/issues/176 is fixed.
+python:
+  install:
+  - requirements: docs/requirements.txt
