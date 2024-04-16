@@ -1,3 +1,3 @@
 """PeakRDL-Markdown tests."""
 
-__authors__ = ["Marek Pikuła <marek.pikula at embevity.com>"]
+__authors__ = ["Marek Pikuła <marek at serenitycode.dev>"]

@@ -1,6 +1,6 @@
 """PeakRDL Markdown plug-in."""
 
-__authors__ = ["Marek Pikuła <marek.pikula at embevity.com>"]
+__authors__ = ["Marek Pikuła <marek at serenitycode.dev>"]
 
 from typing import TYPE_CHECKING
 

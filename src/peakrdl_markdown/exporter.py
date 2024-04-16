@@ -1,7 +1,7 @@
 """PeakRDL Markdown exporter."""
 
 __authors__ = [
-    "Marek Pikuła <marek.pikula at embevity.com>",
+    "Marek Pikuła <marek at serenitycode.dev>",
     "Maciej Dudek <mdudek at antmicro.com>",
 ]
 
