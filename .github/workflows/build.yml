@@ -96,6 +96,7 @@ jobs:
         run: poetry run ${{ matrix.tool }} src/ test/
 
   dependency-review:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -126,7 +127,6 @@ jobs:
   build-publish:
     needs:
       - build-docs
-      - dependency-review
       - lint
       - test
     if: github.event_name == 'release'
