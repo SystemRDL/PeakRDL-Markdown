@@ -25,6 +25,10 @@ repos:
     rev: "v1.9.0"
     hooks:
       - id: mypy
+  - repo: https://github.com/markdownlint/markdownlint
+    rev: "v0.12.0"
+    hooks:
+      - id: markdownlint
 
 exclude: ^example/
 
