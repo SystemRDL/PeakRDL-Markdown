@@ -129,7 +129,7 @@ jobs:
       - dependency-review
       - lint
       - test
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'release'
     name: Build source distribution
     runs-on: ubuntu-latest
     steps:
