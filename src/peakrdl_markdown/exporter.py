@@ -137,8 +137,8 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         offset = node.address_offset
         identifier = node.inst_name
         if node.is_array:
-            assert node.array_dimensions is not None
-            identifier += "".join(f"[{dim}]" for dim in node.array_dimensions)
+            assert node.current_idx is not None
+            identifier += "".join(f"[{idx}]" for idx in node.current_idx)
         name = self._node_name_sanitized(node)
 
         table_row: "OrderedDict[str, Union[str, int]]" = OrderedDict()
