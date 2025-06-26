@@ -216,7 +216,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         # Don't unroll register arrays when they are inside memories.
         # Memories can contain hundreds of entires.
         not_memory = not isinstance(node, MemNode)
-        for child in node.children(unroll=not_memory, skip_not_present=False):
+        for child in node.children(unroll=not_memory, skip_not_present=True):
             if isinstance(child, (AddrmapNode, RegfileNode, MemNode)):
                 output = self._add_addrmap_regfile_mem(child, msg, depth - 1)
                 member_gen += output.generated
