@@ -12,7 +12,7 @@ from operator import mul
 from pathlib import Path
 from typing import List, Optional, Union
 
-from markdownTable import markdownTable  # type:ignore
+from py_markdown_table.markdown_table import markdown_table  # type:ignore
 from systemrdl.messages import MessageHandler  # type: ignore
 from systemrdl.node import (  # type: ignore
     AddressableNode,
@@ -247,9 +247,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
                 )
 
             gen += (
-                markdownTable([*map(lambda m: m.table_row, members)])
-                .setParams(row_sep="markdown", quote=False)
-                .getMarkdown()
+                markdown_table([*map(lambda m: m.table_row, members)])
+                .set_params(row_sep="markdown", quote=False)
+                .get_markdown()
             )
 
         gen += "\n"
@@ -279,9 +279,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
 
         gen: str = self._addrnode_header(node, msg, 3)
         gen += (
-            markdownTable([*map(lambda m: m.table_row, members)])
-            .setParams(row_sep="markdown", quote=False)
-            .getMarkdown()
+            markdown_table([*map(lambda m: m.table_row, members)])
+            .set_params(row_sep="markdown", quote=False)
+            .get_markdown()
         )
         gen += "\n"
 
