@@ -16,6 +16,9 @@ documentation = "https://peakrdl-markdown.readthedocs.io"
 readme = "README.md"
 packages = [{ include = "peakrdl_markdown", from = "src" }]
 
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.8"
+
 [tool.poetry.dependencies]
 python = "^3.7.0"
 systemrdl-compiler = "^1.30.1"
