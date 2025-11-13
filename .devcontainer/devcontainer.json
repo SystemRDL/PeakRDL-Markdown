@@ -37,17 +37,16 @@
 
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"bungcip.better-toml",
 				"charliermarsh.ruff",
 				"github.vscode-github-actions",
 				"GitHub.vscode-pull-request-github",
 				"mhutchie.git-graph",
 				"ms-python.python",
-				"njpwerner.autodocstring",
 				"ms-python.vscode-pylance",
 				"njpwerner.autodocstring",
 				"ryanluker.vscode-coverage-gutters",
-				"streetsidesoftware.code-spell-checker"
+				"streetsidesoftware.code-spell-checker",
+				"tamasfe.even-better-toml"
 			]
 		}
 	},
