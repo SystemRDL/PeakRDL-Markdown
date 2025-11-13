@@ -4,7 +4,7 @@ version = "1.0.3"
 description = "Export Markdown description from the systemrdl-compiler register model"
 authors = ["Marek Pikuła <marek@serenitycode.dev>"]
 maintainers = ["Marek Pikuła <marek@serenitycode.dev>"]
-license = "GPL-3.0-only"
+license = "LGPL-3.0-only"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
