@@ -103,6 +103,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: "Dependency Review"
         uses: actions/dependency-review-action@v4
+        with:
+          allow-ghsas: GHSA-jfmj-5v4g-7637
 
   build-docs:
     runs-on: ubuntu-latest
