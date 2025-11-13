@@ -311,12 +311,14 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         identifier = node.inst_name
 
         access = node.get_property("sw").name
-        if node.get_property("onread") is not None:
-            access += ", " + node.get_property("onread").name
-        if node.get_property("onwrite") is not None:
-            access += ", " + node.get_property("onwrite").name
+        onread = node.get_property("onread")
+        if onread is not None:
+            access += ", " + onread.name
+        onwrite = node.get_property("onwrite")
+        if onwrite is not None:
+            access += ", " + onwrite.name
 
-        reset_value: str = node.get_property("reset", default="—")
+        reset_value = node.get_property("reset", default="—")
         if isinstance(reset_value, int):
             reset = f"0x{reset_value:X}"
         else:
