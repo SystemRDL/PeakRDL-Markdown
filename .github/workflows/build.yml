@@ -35,17 +35,18 @@ jobs:
           push: always
 
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         python-version:
-          - "3.6"
           - "3.7"
           - "3.8"
           - "3.9"
           - "3.10"
           - "3.11"
           - "3.12"
+          - "3.13"
+          - "3.14"
 
     steps:
       - uses: actions/checkout@v4
@@ -59,7 +60,7 @@ jobs:
           cache: "poetry"
 
       - name: Install dependencies
-        run: poetry install --only main,test --sync
+        run: poetry install --only main,test
 
       - name: Test
         run: poetry run pytest test/ --cov=peakrdl_markdown --cov-report=term --cov-report=xml:output/coverage/cov.xml --cov-report=html:output/coverage/html
@@ -80,7 +81,7 @@ jobs:
           - "isort --check --diff"
           - "mypy"
           - "pydocstyle"
-          - "ruff"
+          - "ruff check"
     steps:
       - uses: actions/checkout@v4
       - name: Install Poetry
@@ -91,7 +92,7 @@ jobs:
           python-version: "3.12"
           cache: "poetry"
       - name: Install dependencies
-        run: poetry install --only main,lint --sync
+        run: poetry install --only main,lint
       - name: Run formatter
         run: poetry run ${{ matrix.tool }} src/ test/
 
@@ -115,7 +116,7 @@ jobs:
           python-version: "3.11"  # Fails on 3.12
           cache: "poetry"
       - name: Install dependencies
-        run: poetry install --only main,doc --sync
+        run: poetry install --only main,doc
       - name: Build docs
         run: poetry run make -C docs/ html
       - name: Upload the built documentation
