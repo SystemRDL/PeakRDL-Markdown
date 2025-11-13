@@ -18,7 +18,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout (GitHub)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
@@ -49,12 +49,12 @@ jobs:
           - "3.14"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Install Poetry
         run: pipx install poetry
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: "poetry"
@@ -83,11 +83,11 @@ jobs:
           - "pydocstyle"
           - "ruff check"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Poetry
         run: pipx install poetry
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "poetry"
@@ -100,7 +100,7 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: "Dependency Review"
         uses: actions/dependency-review-action@v4
         with:
@@ -109,20 +109,20 @@ jobs:
   build-docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Poetry
         run: pipx install poetry
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.11"  # Fails on 3.12
+          python-version: "3.12"
           cache: "poetry"
       - name: Install dependencies
         run: poetry install --only main,doc
       - name: Build docs
         run: poetry run make -C docs/ html
       - name: Upload the built documentation
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: documentation
           path: docs/_build/
@@ -136,18 +136,18 @@ jobs:
     name: Build source distribution
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Poetry
         run: pipx install poetry
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "poetry"
       - name: Build the package
         run: poetry build
       - name: Upload the built package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: package
           path: dist/*
