@@ -10,7 +10,7 @@ repos:
       - id: poetry-export
         args: ["-f", "requirements.txt", "-o", "docs/requirements.txt", "--without-hashes", "--only", "doc"]
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: "25.11.0"
+    rev: "25.12.0"
     hooks:
       - id: black
   - repo: https://github.com/pycqa/isort
@@ -22,15 +22,15 @@ repos:
     hooks:
       - id: pydocstyle
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.14.4"
+    rev: "v0.14.9"
     hooks:
       - id: ruff
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v1.18.2"
+    rev: "v1.19.0"
     hooks:
       - id: mypy
   - repo: https://github.com/markdownlint/markdownlint
-    rev: "v0.12.0"
+    rev: "v0.15.0"
     hooks:
       - id: markdownlint
 
