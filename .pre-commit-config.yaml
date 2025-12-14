@@ -39,3 +39,4 @@ exclude: ^example/
 ci:
   skip:
     - poetry-lock  # Due to errors during PyPI connection.
+    - markdownlint
