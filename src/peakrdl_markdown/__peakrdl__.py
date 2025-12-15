@@ -30,6 +30,20 @@ class Exporter(ExporterSubcommandPlugin):  # pylint: disable=too-few-public-meth
             type=int,
             help="Depth of generation (0 means all)",
         )
+        arg_group.add_argument(
+            "--heading_level",
+            dest="heading_level",
+            default=2,
+            type=int,
+            help="Starting heading level for top-level node.",
+        )
+        arg_group.add_argument(
+            "--style",
+            dest="style",
+            choices=["flat", "hierarchy"],
+            default="flat",
+            help="Generation style: 'flat' or 'hierarchy'.",
+        )
 
     def do_export(
         self, top_node: "Union[AddrmapNode, RootNode]", options: "argparse.Namespace"
@@ -46,4 +60,6 @@ class Exporter(ExporterSubcommandPlugin):  # pylint: disable=too-few-public-meth
             input_files=options.input_files,
             rename=options.inst_name,
             depth=options.depth,
+            heading_level=options.heading_level,
+            style=options.style,
         )

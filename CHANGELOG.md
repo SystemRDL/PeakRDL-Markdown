@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0]
+
+### Added
+
+- Add new parameters:
+  - **heading_level:** Starting heading level for top-level node
+  - **style:** 'flat' or 'hierarchy'
+
 ## [1.0.3]
 
 ### Fixed
