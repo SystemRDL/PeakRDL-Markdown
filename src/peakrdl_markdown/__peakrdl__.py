@@ -42,7 +42,7 @@ class Exporter(ExporterSubcommandPlugin):  # pylint: disable=too-few-public-meth
             dest="style",
             choices=["flat", "hierarchy"],
             default="flat",
-            help="Generation style: 'flat' or 'hierarchy'."
+            help="Generation style: 'flat' or 'hierarchy'.",
         )
 
     def do_export(

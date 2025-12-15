@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from functools import reduce
 from operator import mul
 from pathlib import Path
-from typing import List, Optional, Union, Literal
+from typing import List, Literal, Optional, Union
 
 from py_markdown_table.markdown_table import markdown_table  # type:ignore
 from systemrdl.messages import MessageHandler  # type: ignore
@@ -25,6 +25,7 @@ from systemrdl.node import (  # type: ignore
     RootNode,
 )
 
+
 class MarkdownExporter:  # pylint: disable=too-few-public-methods
     """PeakRDL Markdown exporter main class."""
 
@@ -35,6 +36,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
     @dataclass
     class GenStageOutput:
         """Generation stage output."""
+
         node: Node
         table_row: "OrderedDict[str, Union[str, int]]"
         generated: str
@@ -52,7 +54,8 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         """
         # Safety check: Markdown only supports up to level 6
         safe_depth = min(depth, 6)
-        if safe_depth < 1: safe_depth = 1 # Prevent 0 or negative
+        if safe_depth < 1:
+            safe_depth = 1  # Prevent 0 or negative
 
         return "\n" + "#" * safe_depth + f" {title}\n\n"
 
@@ -207,7 +210,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             raise ValueError("The output file is not Markdown file.")
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
-        gen = self._add_addrmap_regfile_mem(top, node.env.msg, depth - 1, heading_level).generated
+        gen = self._add_addrmap_regfile_mem(
+            top, node.env.msg, depth - 1, heading_level
+        ).generated
 
         with open(output_path, "w", encoding="UTF-8") as output:
             output.write(
@@ -236,7 +241,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             GenStageOutput object containing generated markdown.
         """
         next_header_level = 2 if self.style == "flat" else heading_level + 1
-    
+
         members: List[MarkdownExporter.GenStageOutput] = []
         member_gen: str = ""
         # Don't unroll register arrays when they are inside memories.
@@ -244,7 +249,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         not_memory = not isinstance(node, MemNode)
         for child in node.children(unroll=not_memory, skip_not_present=True):
             if isinstance(child, (AddrmapNode, RegfileNode, MemNode)):
-                output = self._add_addrmap_regfile_mem(child, msg, depth - 1, next_header_level)
+                output = self._add_addrmap_regfile_mem(
+                    child, msg, depth - 1, next_header_level
+                )
                 member_gen += output.generated
                 members.append(output)
             elif isinstance(child, RegNode):
@@ -301,7 +308,7 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             members.append(output)
 
         if self.style == "flat":
-            gen = self._addrnode_header(node, msg, 3) # Hardcoded level 3
+            gen = self._addrnode_header(node, msg, 3)  # Hardcoded level 3
             if members:
                 gen += (
                     markdown_table([*map(lambda m: m.table_row, members)])
@@ -324,7 +331,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
                     .set_params(row_sep="markdown", quote=False)
                     .get_markdown()
                 )
-                indented_table = "\n".join("  " + line for line in table_md.splitlines())
+                indented_table = "\n".join(
+                    "  " + line for line in table_md.splitlines()
+                )
                 gen += "\n" + indented_table + "\n"
 
             if field_gen:
@@ -357,12 +366,16 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
         identifier = node.inst_name
         access = node.get_property("sw").name
         onread = node.get_property("onread")
-        if onread is not None: access += ", " + onread.name
+        if onread is not None:
+            access += ", " + onread.name
         onwrite = node.get_property("onwrite")
-        if onwrite is not None: access += ", " + onwrite.name
+        if onwrite is not None:
+            access += ", " + onwrite.name
 
         reset_value = node.get_property("reset", default="—")
-        reset = f"0x{reset_value:X}" if isinstance(reset_value, int) else str(reset_value)
+        reset = (
+            f"0x{reset_value:X}" if isinstance(reset_value, int) else str(reset_value)
+        )
         name = self._node_name_sanitized(node)
 
         table_row: "OrderedDict[str, Union[str, int]]" = OrderedDict()
@@ -376,7 +389,9 @@ class MarkdownExporter:  # pylint: disable=too-few-public-methods
             gen = ""
             desc = node.get_html_desc()
             if desc is not None:
-                gen = self._heading(4, f"{node.inst_name} field") + desc + "\n" # Hardcoded level 4
+                gen = (
+                    self._heading(4, f"{node.inst_name} field") + desc + "\n"
+                )  # Hardcoded level 4
         else:
             gen = f"\n  - **{node.inst_name}** [{bits}]\n"
             desc = node.get_html_desc()
