@@ -122,7 +122,7 @@ jobs:
       - name: Build docs
         run: poetry run make -C docs/ html
       - name: Upload the built documentation
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: documentation
           path: docs/_build/
@@ -147,7 +147,7 @@ jobs:
       - name: Build the package
         run: poetry build
       - name: Upload the built package
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: package
           path: dist/*
