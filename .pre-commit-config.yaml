@@ -1,20 +1,20 @@
 repos:
   - repo: https://github.com/python-poetry/poetry
-    rev: "2.2.1"
+    rev: "2.4.1"
     hooks:
       - id: poetry-check
       - id: poetry-lock
   - repo: https://github.com/python-poetry/poetry-plugin-export
-    rev: "1.9.0"
+    rev: "1.10.0"
     hooks:
       - id: poetry-export
         args: ["-f", "requirements.txt", "-o", "docs/requirements.txt", "--without-hashes", "--only", "doc"]
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: "25.12.0"
+    rev: "26.5.1"
     hooks:
       - id: black
   - repo: https://github.com/pycqa/isort
-    rev: "7.0.0"
+    rev: "9.0.1"
     hooks:
       - id: isort
   - repo: https://github.com/pycqa/pydocstyle
@@ -22,15 +22,15 @@ repos:
     hooks:
       - id: pydocstyle
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.14.9"
+    rev: "v0.16.5"
     hooks:
       - id: ruff
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v1.19.0"
+    rev: "v2.3.1"
     hooks:
       - id: mypy
   - repo: https://github.com/markdownlint/markdownlint
-    rev: "v0.15.0"
+    rev: "v0.18.1"
     hooks:
       - id: markdownlint
 
