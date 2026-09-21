@@ -12,7 +12,7 @@ from operator import mul
 from pathlib import Path
 from typing import List, Optional, Union
 
-from py_markdown_table.markdown_table import markdown_table  # type:ignore
+from py_markdown_table.markdown_table import markdown_table  # type: ignore
 from systemrdl.messages import MessageHandler  # type: ignore
 from systemrdl.node import (  # type: ignore
     AddressableNode,
